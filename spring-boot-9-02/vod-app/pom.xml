@@ -11,7 +11,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>vod</groupId>
-    <artifactId>vod-app</artifactId>
+    <artifactId>rentalcars-app</artifactId>
     <version>1.0</version>
 
     <properties>
