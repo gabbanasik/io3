@@ -14,5 +14,5 @@ public interface RentalCarService {
     List<RentalCar> getRentalCarsByCar(Car c);
 
     List<Car> getCarsInRentalCar(RentalCar rc);
-
+RentalCar addRentalCar(RentalCar rc);
 }

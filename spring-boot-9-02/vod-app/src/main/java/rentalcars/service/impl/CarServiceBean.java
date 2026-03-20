@@ -1,7 +1,9 @@
 package rentalcars.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import rentalcars.repository.RentalCarDao;
 import rentalcars.repository.ClientDao;
 import rentalcars.repository.CarDao;
@@ -13,7 +15,8 @@ import rentalcars.service.CarService;
 import java.util.List;
 import java.util.logging.Logger;
 
-@Component
+@Service
+@Scope("prototype")
 public class CarServiceBean implements CarService {
 
     private static final Logger log = Logger.getLogger(CarService.class.getName());
@@ -81,13 +84,13 @@ public class CarServiceBean implements CarService {
     @Override
     public Car addCar(Car c) { // Zmieniono z addMovie
         log.info("about to add car " + c);
-        return carDao.add(c);
+        return carDao.save(c);
     }
 
     @Override
     public Client addClient(Client c) { // Zmieniono z addDirector
         log.info("about to add client " + c);
-        return clientDao.add(c);
+        return clientDao.save(c);
     }
 
 }

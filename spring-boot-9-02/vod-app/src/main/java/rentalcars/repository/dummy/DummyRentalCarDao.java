@@ -15,4 +15,9 @@ public class DummyRentalCarDao implements RentalCarDao {
     public RentalCar findById(int id) {return null;}
     @Override
     public List<RentalCar> findByCar(Car m) {return List.of();}
+    @Override
+    public RentalCar save(RentalCar rc) {
+        // Implementacja dummy - po prostu zwracamy obiekt, aby spełnić kontrakt interfejsu [cite: 1455, 1476]
+        return rc;
+    }
 }

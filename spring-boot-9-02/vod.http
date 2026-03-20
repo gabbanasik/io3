@@ -1,0 +1,71 @@
+### ------------------------------------------------------------------------
+### WYPOŻYCZALNIE SAMOCHODÓW (RENTAL CARS)
+### ------------------------------------------------------------------------
+
+### Pobierz wszystkie wypożyczalnie
+GET http://localhost:8080/webapi/rentalcars
+Accept: application/json
+
+### Pobierz wypożyczalnie z filtrowaniem, własnym nagłówkiem i ciasteczkiem
+GET http://localhost:8080/webapi/rentalcars?phrase=foo
+custom-header: custom-value
+Cookie: some-cookie=some-value
+
+### Pobierz konkretną wypożyczalnię po ID w formacie XML
+GET http://localhost:8080/webapi/rentalcars/1
+Accept: application/xml
+
+### Pobierz konkretną wypożyczalnię po ID w formacie JSON
+GET http://localhost:8080/webapi/rentalcars/1
+Accept: application/json
+
+### Pobierz wypożyczalnie, które posiadają konkretny model auta (carId=1)
+GET http://localhost:8080/webapi/models/1/rentalcars
+Accept: application/json
+
+### Dodaj nową wypożyczalnię (RentalCar)
+POST http://localhost:8080/webapi/rentalcars
+Content-Type: application/json
+Accept-Language: pl
+
+{
+  "name": "Auto-Lux Warszawa",
+  "logo": "https://autoskup-lom.pl/wp-content/uploads/2017/11/auto-skup-L.O.M-1.png"
+}
+
+### ------------------------------------------------------------------------
+### MODELE AUT (CARS)
+### ------------------------------------------------------------------------
+
+### Pobierz wszystkie auta
+GET http://localhost:8080/webapi/cars
+Accept: application/json
+
+### Pobierz konkretne auto po ID
+GET http://localhost:8080/webapi/cars/1
+Accept: application/json
+
+### Dodaj nowe auto (Prawidłowe - z pełnymi danymi z CarDto)
+POST http://localhost:8080/webapi/cars
+Content-Type: application/json
+
+{
+  "brand": "Toyota",
+  "model": "Corolla",
+  "productionYear": 2020,
+  "dailyRate": 150.0,
+  "clientId": 1
+}
+
+### Dodaj nowe auto - Test walidacji (Brak marki) z włoskim komunikatem
+POST http://localhost:8080/webapi/cars
+Content-Type: application/json
+Accept-Language: it
+
+{
+  "brand": "",
+  "model": "Yaris",
+  "productionYear": 2019,
+  "dailyRate": 120.0,
+  "clientId": 1
+}

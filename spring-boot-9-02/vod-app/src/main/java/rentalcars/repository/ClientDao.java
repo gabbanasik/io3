@@ -10,7 +10,7 @@ public interface ClientDao {
 
     Client findById(int id);
 
-    Client add(Client c);
+    Client save(Client c);
 
 
 }

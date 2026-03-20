@@ -12,5 +12,5 @@ public interface RentalCarDao {
     RentalCar findById(int id);
 
     List<RentalCar> findByCar(Car m);
-
+RentalCar save(RentalCar car);
 }

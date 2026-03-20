@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Wypożyczalnia Aut</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet"/>
+</head>
+<body>
+<header>
+    <a href="./"><h1>AutoRent</h1></a>
+    <h2 th:text="${name}"></h2>
+    <h3>
+    </h3>
+</header>
+<section>
+
+    <table>
+        <tr>
+            <th>Marka</th>
+            <th>Model</th>
+            <th>Rok produkcji</th>
+            <th>Klient</th>
+            <th>Cena za dzień</th>
+            <th>Salony</th>
+        </tr>
+        <tr th:each="c : ${cars}">
+
+            <td th:text="${c.brand}"></td>
+            <td th:text="${c.model}"></td>
+            <td th:text="${c.productionYear}"></td>
+
+            <td>
+                <a th:if="${c.client != null}"
+                   th:href="@{/cars(clientID=${c.client.id})}"
+                   th:text="${c.client.firstName} + ' ' + ${c.client.lastName}"></a>
+                <span th:if="${c.client == null}">Brak</span>
+            </td>
+
+            <td class="rating" th:text="${c.dailyRate} + ' PLN'"></td>
+
+            <td class="search-container">
+                <a class="search" th:href="@{/rentalcars(carID=${c.id})}">Pokaż salony</a>
+            </td>
+        </tr>
+    </table>
+
+</section>
+<div id="orders">
+</div>
+<footer>
+    <span th:text="${tip}"></span>
+</footer>
+
+</body>
+</html>

@@ -1,6 +1,8 @@
 package rentalcars.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +10,8 @@ import java.util.List;
 public class RentalCar {
 
     private int id;
+    @NotNull
+    @Size(min = 2, max = 30)
     private String name;
     private String logo; //url logo w przypadku UI będzie zaciągany dynamicznie
     @JsonIgnore

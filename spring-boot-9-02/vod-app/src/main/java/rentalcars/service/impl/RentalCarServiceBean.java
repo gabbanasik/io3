@@ -2,6 +2,7 @@ package rentalcars.service.impl;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import rentalcars.model.RentalCar;
 import rentalcars.model.Car;
 import rentalcars.repository.RentalCarDao;
@@ -11,7 +12,7 @@ import rentalcars.service.RentalCarService;
 import java.util.List;
 import java.util.logging.Logger;
 
-@Component
+@Service
 @Scope("prototype")
 public class RentalCarServiceBean implements RentalCarService {
 
@@ -49,5 +50,9 @@ public class RentalCarServiceBean implements RentalCarService {
         log.info("searching rental car agencies by car " + c.getId());
         return rentalCarDao.findByCar(c);
     }
-
+    @Override
+    public RentalCar addRentalCar(RentalCar rc) { // Odpowiednik addCinema [cite: 1521]
+        log.info("adding new rental car agency " + rc);
+        return rentalCarDao.save(rc); // [cite: 1530]
+    }
 }

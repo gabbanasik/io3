@@ -1,11 +1,15 @@
 package rentalcars.model;
 
+import jakarta.validation.constraints.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Car {
 
+
     private int id;
+    @NotNull
     private String brand;
     private String model;
     private int productionYear;

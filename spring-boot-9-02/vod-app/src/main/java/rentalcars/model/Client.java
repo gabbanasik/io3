@@ -1,13 +1,18 @@
 package rentalcars.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.validation.constraints.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Client {
 
     private int id;
+    @NotNull
     private String firstName;
     private String lastName;
+    @JsonIgnore
     private List<Car> cars = new ArrayList<>();//relacja 1 do wielu
 //listy zeby przey przełączniu na SpringDate nie było komplikacji
 //lista od seta różni się tym że są w niej powtórzenia oraz trzymamy kolejność wrzucania

@@ -16,6 +16,6 @@ public interface CarDao {
 
     List<Car> findByRentalCar(RentalCar rc);
 
-    Car add(Car c);
+    Car save(Car c);
 
 }

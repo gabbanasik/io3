@@ -1,12 +1,13 @@
 package rentalcars.repository.mem;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import rentalcars.repository.ClientDao;
 import rentalcars.model.Client;
 
 import java.util.List;
 
-@Component
+@Repository("clientDao")
 public class MemClientDao implements ClientDao {
     @Override
     public List<Client> findAll() {
@@ -20,7 +21,7 @@ public class MemClientDao implements ClientDao {
     }
 
     @Override
-    public Client add(Client client) { // Zmieniono parametr 'd' na 'client'
+    public Client save(Client client) { // Zmieniono parametr 'd' na 'client'
         // Zmieniono 'd1, d2' na 'c1, c2'
         int max = SampleData.clients.stream().max((c1, c2) -> c1.getId() - c2.getId()).get().getId();
         client.setId(++max);
