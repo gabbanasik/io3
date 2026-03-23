@@ -84,7 +84,7 @@ public class CarServiceBean implements CarService {
     @Override
     public Car addCar(Car c) { // Zmieniono z addMovie
         log.info("about to add car " + c);
-        return carDao.save(c);
+        return carDao.add(c);
     }
 
     @Override

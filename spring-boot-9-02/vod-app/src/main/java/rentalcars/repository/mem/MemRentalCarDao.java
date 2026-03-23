@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Repository("RentalCarDao")
-@Primary
+//@Primary
 public class MemRentalCarDao implements RentalCarDao {
 
     @Override

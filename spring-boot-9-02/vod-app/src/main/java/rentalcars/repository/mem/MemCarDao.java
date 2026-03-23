@@ -36,7 +36,7 @@ public class MemCarDao implements CarDao {
 
     @Override
     // Zmieniono parametr 'm' na 'car'
-    public Car save(Car car) {
+    public Car add(Car car) {
         // Zmieniono 'm1, m2' na 'c1, c2'
         int max = SampleData.cars.stream().max((c1, c2) -> c1.getId() - c2.getId()).get().getId();
         car.setId(++max);

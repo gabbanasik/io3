@@ -1,25 +1,35 @@
 package rentalcars.model;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Entity
 public class Car {
 
-
+@Id
+@GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
     @NotNull
     private String brand;
     private String model;
     private int productionYear;
 
-
+    @ManyToOne
+    @JoinColumn(name="client_id")
     private Client client;
 
-    private float dailyRate;      // Cena za dzień wypożyczenia
+    private float dailyRate;
+    // Cena za dzień wypożyczenia
 
     // Relacja wiele do wielu - punkty wypożyczalni
+    @ManyToMany
+    @JoinTable(
+            name="car_rental_car", // Nowa, czysta nazwa
+            joinColumns=@JoinColumn(name="car_id"),
+            inverseJoinColumns=@JoinColumn(name="rental_car_id") // Tu też warto dać podkreślnik
+    )
     private List<RentalCar> rentalCars = new ArrayList<>();
 
     public Car(int id, String brand, String model, int productionYear, Client client, float dailyRate) {

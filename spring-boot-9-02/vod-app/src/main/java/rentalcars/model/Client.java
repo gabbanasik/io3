@@ -1,17 +1,24 @@
 package rentalcars.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Entity
 public class Client {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @NotNull
+    @Column(name= "first_name")
     private String firstName;
+    @Column(name= "last_name")
     private String lastName;
+    @OneToMany(mappedBy = "client")
     @JsonIgnore
     private List<Car> cars = new ArrayList<>();//relacja 1 do wielu
 //listy zeby przey przełączniu na SpringDate nie było komplikacji
