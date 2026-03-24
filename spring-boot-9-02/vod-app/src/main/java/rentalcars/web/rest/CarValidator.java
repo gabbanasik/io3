@@ -12,7 +12,10 @@ import rentalcars.web.rest.dto.CarDto;
 @Component
 @RequiredArgsConstructor
 public class CarValidator implements Validator {
-    private CarService carService;
+    private final CarService carService;
+    /*public CarValidator(CarService carService) {
+        this.carService = carService;
+    }*/
     @Override
     public boolean supports(Class<?>clazz){return clazz.isAssignableFrom(CarDto.class);}
     @Override

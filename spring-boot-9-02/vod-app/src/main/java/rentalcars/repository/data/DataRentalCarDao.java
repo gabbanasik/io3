@@ -1,7 +1,5 @@
 package rentalcars.repository.data;
 
-import jakarta.persistence.PersistenceContext;
-import jakarta.validation.constraints.Null;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
@@ -14,7 +12,7 @@ import java.util.List;
 @Repository
 @Primary
 @RequiredArgsConstructor
-public class DataRentslCarDao implements RentalCarDao {
+public class DataRentalCarDao implements RentalCarDao {
     private final RentalCarRepository repository;
     @Override
     public List<RentalCar> findAll(){

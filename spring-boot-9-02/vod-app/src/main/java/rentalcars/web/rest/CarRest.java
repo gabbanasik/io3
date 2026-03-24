@@ -29,7 +29,13 @@ public class CarRest {
     private final CarService carService;
     private final MessageSource messageSource;
     private final LocaleResolver localeResolver;
+    private final CarValidator carValidator;
 
+    // 2. Dodaj tę metodę, aby zarejestrować walidator
+    @InitBinder
+    protected void initBinder(org.springframework.web.bind.WebDataBinder binder) {
+        binder.addValidators(carValidator);
+    }
     @GetMapping("/cars")
     public List<Car> getCars() {
         log.info("about to retrieve cars list");

@@ -12,7 +12,7 @@ import rentalcars.repository.CarDao;
 import java.util.List;
 
 @Repository
-@Primary
+//@Primary
 public class JpaCarDao implements CarDao {
     @PersistenceContext
     private EntityManager entityManager;
