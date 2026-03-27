@@ -1,7 +1,3 @@
-### ------------------------------------------------------------------------
-### WYPOŻYCZALNIE SAMOCHODÓW (RENTAL CARS)
-### ------------------------------------------------------------------------
-
 ### Pobierz wszystkie wypożyczalnie
 GET http://localhost:8080/webapi/rentalcars
 Accept: application/json
@@ -14,6 +10,7 @@ Cookie: some-cookie=some-value
 ### Pobierz konkretną wypożyczalnię po ID w formacie XML
 GET http://localhost:8080/webapi/rentalcars/1
 Accept: application/xml
+Authorization: Basic dbuser2 dbuser2
 
 ### Pobierz konkretną wypożyczalnię po ID w formacie JSON
 GET http://localhost:8080/webapi/rentalcars/1
@@ -26,16 +23,15 @@ Accept: application/json
 ### Dodaj nową wypożyczalnię (RentalCar)
 POST http://localhost:8080/webapi/rentalcars
 Content-Type: application/json
-Accept-Language: pl
+Accept-Language: it
+Authorization: Basic dbuser1 dbuser1
 
 {
   "name": "Auto-Lux Warszawa",
   "logo": "https://autoskup-lom.pl/wp-content/uploads/2017/11/auto-skup-L.O.M-1.png"
 }
 
-### ------------------------------------------------------------------------
-### MODELE AUT (CARS)
-### ------------------------------------------------------------------------
+
 
 ### Pobierz wszystkie auta
 GET http://localhost:8080/webapi/cars
@@ -48,10 +44,11 @@ Accept: application/json
 ### Dodaj nowe auto (Prawidłowe - z pełnymi danymi z CarDto)
 POST http://localhost:8080/webapi/cars
 Content-Type: application/json
+Authorization: Basic dbuser1 dbuser1
 
 {
-  "brand": "Toyota",
-  "model": "Corolla",
+  "brand": "MG",
+  "model": "2",
   "productionYear": 2020,
   "dailyRate": 150.0,
   "clientId": 1

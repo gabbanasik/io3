@@ -26,7 +26,7 @@ public class RentalCarsValidator implements Validator {
                 .anyMatch(rc -> rc.getName().equalsIgnoreCase(validatedRentalCar.getName()));
 
         if (duplicated) {
-            // Zmieniono klucz na rentalcar (zgodnie z ujednoliconym nazewnictwem)
+
             errors.rejectValue("name", "rentalcar.name.duplicated");
         }
     }

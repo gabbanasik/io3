@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HelloRest {
 
     @GetMapping("/hello")
-   // @RequestMapping(value = "/hello",method = RequestMethod.GET)
+
     @ResponseBody String sayHello() {return "Hey Universe!";}
 }

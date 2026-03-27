@@ -19,18 +19,18 @@ import java.util.List;
 import java.util.logging.Logger;
 
 @Service
-@RequiredArgsConstructor // Zastępuje ręczny konstruktor
+@RequiredArgsConstructor
 public class CarServiceBean implements CarService {
 
     private static final Logger log = Logger.getLogger(CarService.class.getName());
 
-    // Wszystkie 4 pola są teraz FINALNE
+
     private final ClientDao clientDao;
     private final RentalCarDao rentalCarDao;
     private final CarDao carDao;
     private final PlatformTransactionManager transactionManager;
 
-    // USUNIĘTO RĘCZNY KONSTRUKTOR I SETTERY!
+
 
     public List<Car> getAllCars() {
         log.info("searching all cars...");
@@ -104,11 +104,11 @@ public class CarServiceBean implements CarService {
 
        TransactionStatus transactionStatus = transactionManager.getTransaction(new DefaultTransactionAttribute());
        try {
-           // 1. Pobieramy wszystkie auta, żeby sprawdzić co już mamy
+
            List<Car> allCarsInDb = carDao.findAll();
            log.info("Pobralem z bazy " + allCarsInDb.size() + " aut do sprawdzenia.");
 
-           // 2. Szukamy duplikatu
+
            boolean carExists = false;
            for (Car existingCar : allCarsInDb) {
                if (existingCar.getBrand() != null && existingCar.getModel() != null) {
@@ -122,12 +122,12 @@ public class CarServiceBean implements CarService {
                }
            }
 
-           // 3. Jeśli znaleźliśmy, wyrzucamy wyjątek!
+
            if (carExists) {
                throw new RuntimeException("BLOKADA: Auto " + c.getBrand() + " " + c.getModel() + " juz istnieje w systemie!");
            }
 
-           // 4. Jeśli nie ma duplikatu, zapisujemy nowe auto
+
            log.info("Brak duplikatow. Zapisuje auto do bazy...");
            c = carDao.add(c);
 

@@ -18,10 +18,10 @@ public class RentalCar {
     @Size(min = 2, max = 30)
     private String name;
     @Column(name = "logo")
-    private String logo; //url logo w przypadku UI będzie zaciągany dynamicznie
+    private String logo;
     @ManyToMany(mappedBy = "rentalCars")
     @JsonIgnore
-    private List<Car> cars = new ArrayList<>();//struktura kolekcyjna związana z dostępnymi samochodami, uproszczone
+    private List<Car> cars = new ArrayList<>();
     //relacja wiele do wiele
 
     public RentalCar(int id, String name, String logo) {//konstruktor
@@ -30,9 +30,7 @@ public class RentalCar {
         this.logo = logo;
     }
 
-    public RentalCar() {//bezparametrowy
-    }
-    //settery, gettery i to String - później będziemy korzystać z wynalazku Lombok
+    public RentalCar() {}
     public int getId() {
         return id;
     }

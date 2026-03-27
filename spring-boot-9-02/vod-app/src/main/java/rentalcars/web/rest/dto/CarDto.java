@@ -21,5 +21,5 @@ public class CarDto {
     private float dailyRate;
 
     @NotNull
-    private Integer clientId; // Używamy Integer, by powiązać auto z klientem (odpowiednik reżysera)
+    private Integer clientId;
 }

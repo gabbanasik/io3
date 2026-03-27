@@ -31,7 +31,6 @@ public class CarRest {
     private final LocaleResolver localeResolver;
     private final CarValidator carValidator;
 
-    // 2. Dodaj tę metodę, aby zarejestrować walidator
     @InitBinder
     protected void initBinder(org.springframework.web.bind.WebDataBinder binder) {
         binder.addValidators(carValidator);

@@ -26,9 +26,9 @@ public class Car {
     // Relacja wiele do wielu - punkty wypożyczalni
     @ManyToMany
     @JoinTable(
-            name="car_rental_car", // Nowa, czysta nazwa
+            name="car_rental_car",
             joinColumns=@JoinColumn(name="car_id"),
-            inverseJoinColumns=@JoinColumn(name="rental_car_id") // Tu też warto dać podkreślnik
+            inverseJoinColumns=@JoinColumn(name="rental_car_id")
     )
     private List<RentalCar> rentalCars = new ArrayList<>();
 
